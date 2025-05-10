@@ -1,0 +1,40 @@
+<html>
+<head>
+    <title>Best cities you've visited!</title>
+    <script type="text/javascript" src="/static/tasks.js"></script>
+    <link href="static/store.css" rel="stylesheet">
+</head>
+
+<body>
+    <h1>Cities you've visited:</h1>
+    <h3>Add new city:</h3>
+    <style>
+        body{
+            background-size: 100% 100%;
+            background-image:  url("https://img.freepik.com/free-photo/empty-town-square_1359-964.jpg?t=st=1746898422~exp=1746902022~hmac=625f6a9048772cb936bb0e789c8774271f13fc0c5396b7e2cd3cc222d0e6924a&w=1380");
+        }
+    </style>
+    <form>
+        <div>
+            <input type="text" name="city_name" id="city_name">
+            <label for="city_name"> City name</label>
+        </div>
+        <div>
+            <input type="text" name="date_of_visit" id="date_of_visit">
+            <label for="date_of_visit"> Date (format: 10.03.2025)</label>
+        </div>
+        <button onclick="addCity()">Add</button>
+        <button onclick="clean_list()">Clean list</button>
+    </form>
+    <ul>
+        {% for city in cities_list %}
+        <li>
+            <div>
+                <div>{{ city["city_name"]}}</div>
+                <div>{{ city["date_of_visit"]}}</div>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
